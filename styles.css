@@ -1,0 +1,6 @@
+/* Start CSS reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+/* End CSS reset */
