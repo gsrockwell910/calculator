@@ -2,5 +2,43 @@
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: Helvetica, sans-serif;
+    font-weight: normal;
 }
 /* End CSS reset */
+
+/* Start container styling */
+.calculator-container {
+    min-height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+/* End container styling */
+
+/* Start output styling */
+.output-section {
+    background-color: rgba(0, 0, 0, 0.25);
+    grid-column: 1 / -1;
+}
+/* End output styling */
+
+/* Start button styling */
+.doubled {
+    grid-column: span 2;
+}
+
+.calculator-container > button {
+    outline: none;
+    border: 1px solid black;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.calculator-container > button:hover {
+    background-color: rgba(155, 155, 155, .9); 
+}
+/* End button styling */
+
