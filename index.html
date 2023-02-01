@@ -8,35 +8,37 @@
     </head>
     <body>
         <!-- Start calculator structure -->
+    <div class="wrapper">
         <div class="calculator-container">
             <!-- Start output section -->
             <div class="output-section">
-                <div class="previous-operation">31 +</div>
-                <div class="current-operation">2500</div>
+                <div class="previous-operation" data-previous-operand></div>
+                <div class="current-operation" data-current-operand></div>
             </div>
             <!-- End output section -->
 
             <!-- Start button section -->
-            <button class="doubled">AC</button>
-            <button>DEL</button>
-            <button>÷</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>*</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>+</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>-</button>
-            <button>.</button>
-            <button>0</button>
-            <button class="doubled">=</button>
+            <button class="doubled" data-all-clear id="all-clear">AC</button>
+            <button data-delete id="delete">DEL</button>
+            <button data-operation>÷</button>
+            <button data-number>1</button>
+            <button data-number>2</button>
+            <button data-number>3</button>
+            <button data-operation>*</button>
+            <button data-number>4</button>
+            <button data-number>5</button>
+            <button data-number>6</button>
+            <button data-operation>+</button>
+            <button data-number>7</button>
+            <button data-number>8</button>
+            <button data-number>9</button>
+            <button data-operation>-</button>
+            <button data-number>.</button>
+            <button data-number>0</button>
+            <button class="doubled" data-equals id="equal">=</button>
             <!-- End button section -->
         </div>
+    </div>
         <!-- End calculator structure -->
     </body>
 </html>
