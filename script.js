@@ -34,6 +34,9 @@ class Calculator {
         const curr = parseFloat(this.currentOperand);
         if (isNaN(prev) || isNaN(curr)) { 
             return;
+        } else if (this.operation === "÷" && this.currentOperand === "0") {
+            alert("Can not divide by zero!");
+            this.currentOperand.delete();
         } else if (this.operation === "+") {
             results = prev + curr;
         } else if (this.operation === "-") {
@@ -83,7 +86,7 @@ class Calculator {
             this.previousOperandText.textContent = `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
         } else {
             this.previousOperandText.textContent = "";
-        }
+        };
     };
 };
 
