@@ -49,15 +49,41 @@ class Calculator {
      }
 
       pickOperation(operation) {
-
+        if (this.currentOperand === "") return;
+        if (this.previousOperand !== "") {
+            this.computeExpression();
+        };
+        this.operation = operation;
+        this.previousOperand = this.currentOperand;
+        this.currentOperand = "";
       }
 
       getDisplayNumber(number) {
+        const stringNumber = number.toString();
+        const intDigits = parseFloat(stringNumber.split(".")[0]);
+        const decimalDigits = stringNumber.split(".")[1];
+        let intDisplay;
+        if (isNaN(intDigits)) {
+            intDisplay = "";
+        } else {
+            intDisplay = intDigits.toLocaleString("en", {
+                maximumFractionDigits: 0
+            });
+        }
+        if (decimalDigits != null) {
+            return `${intDisplay}.${decimalDigits}`;
+        } else {
+            return intDisplay;
+        }
 
       }
 
       update() {
-
+        this.currentOperandText.textContent = this.getDisplayNumber(this.currentOperand);
+        if (this.operation != null) {
+            this.previousOperandText.textContent = `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
+        } else {
+            this.previousOperandText.textContent = "";
       }
 };
 
