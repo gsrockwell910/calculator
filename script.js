@@ -11,24 +11,24 @@ class Calculator {
         this.currentOperandText = currentOperandText;
         this.previousOperandText = previousOperandText;
         this.clearAll();
-     };
+    };
 
-     delete() {
+    delete() {
         this.currentOperand = this.currentOperand.toString().slice(0, -1);
-     }
+    };
 
-     clearAll() {
+    clearAll() {
         this.currentOperand = "";
         this.previousOperand = "";
         this.operation = null;
-     }
+    };
 
-     displayNumber(number) { 
+    displayNumber(number) {
         if (number === "." && this.currentOperand.includes(".")) return;
         this.currentOperand = this.currentOperand.toString() + number.toString();
-     } 
+    };
 
-     computeExpression() {
+    computeExpression() {
         let results;
         const prev = parseFloat(this.previousOperand);
         const curr = parseFloat(this.currentOperand);
@@ -46,9 +46,9 @@ class Calculator {
         this.currentOperand = results;
         this.operation = null;
         this.previousOperand = "";
-     }
+    };
 
-      pickOperation(operation) {
+    pickOperation(operation) {
         if (this.currentOperand === "") return;
         if (this.previousOperand !== "") {
             this.computeExpression();
@@ -56,9 +56,9 @@ class Calculator {
         this.operation = operation;
         this.previousOperand = this.currentOperand;
         this.currentOperand = "";
-      }
+    };
 
-      getDisplayNumber(number) {
+    getDisplayNumber(number) {
         const stringNumber = number.toString();
         const intDigits = parseFloat(stringNumber.split(".")[0]);
         const decimalDigits = stringNumber.split(".")[1];
@@ -75,16 +75,16 @@ class Calculator {
         } else {
             return intDisplay;
         }
+    }
 
-      }
-
-      update() {
+    update() {
         this.currentOperandText.textContent = this.getDisplayNumber(this.currentOperand);
         if (this.operation != null) {
             this.previousOperandText.textContent = `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
         } else {
             this.previousOperandText.textContent = "";
-      }
+        }
+    };
 };
 
 const calculator = new Calculator(currentOperandText, previousOperandText);
@@ -103,6 +103,11 @@ operationButtons.forEach((button) => {
     })
 })
 
+equalsButton.addEventListener("click", button => {
+    calculator.computeExpression();
+    calculator.update();
+});
+
 allClearButton.addEventListener("click", button => {
     calculator.clearAll();
     calculator.update();
@@ -110,10 +115,5 @@ allClearButton.addEventListener("click", button => {
 
 deleteButton.addEventListener("click", button => {
     calculator.delete();
-    calculator.update();
-});
-
-equalsButton.addEventListener("click", button => {
-    calculator.computeExpression();
     calculator.update();
 });
