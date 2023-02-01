@@ -6,39 +6,106 @@
 }
 /* End CSS reset */
 
+body {
+    background: linear-gradient(black, blue, purple);
+}
+
 /* Start container styling */
 .calculator-container {
-    min-height: 100vh;
+    height: 700px;
+    background-color: grey;
+    width: 460px;
+    border-radius: 5px;
     display: grid;
     justify-content: center;
     align-content: center;
     grid-template-columns: repeat(4, 100px);
     grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    gap: 10px;
 }
 /* End container styling */
 
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 /* Start output styling */
 .output-section {
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 255, 0, 0.5);
+    color: white;
     grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0px 10px;
+    border-radius: 5px 5px 5px 5px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.previous-operation {
+    font-size: 1.5rem;
+    color: black;
+}
+
+.current-operation {
+    font-size: 2.5rem;
+    color: black;
 }
 /* End output styling */
 
 /* Start button styling */
+.calculator-container > button {
+    outline: none;
+    border: 1px solid black;
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .75);
+    border-radius: 5px 5px 5px 5px;
+}
+
+.calculator-container > button:hover {
+    background-color: rgba(185, 185, 185, .9); 
+    border: 1px solid white;
+}
+
 .doubled {
     grid-column: span 2;
 }
 
-.calculator-container > button {
-    outline: none;
-    border: 1px solid black;
-    font-size: 1.5rem;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, .75);
+#equal {
+    background-color: orange;
+    color: white;
 }
 
-.calculator-container > button:hover {
-    background-color: rgba(155, 155, 155, .9); 
+#equal:hover {
+    background-color: rgb(211, 130, 2);
+    color: white;
+}
+
+
+#delete {
+    background-color: red;
+    color: white;
+}
+
+#delete:hover {
+    background-color: rgb(211, 2, 2);
+    color: white;
+}
+
+#all-clear {
+    background-color: blue;
+    color: white;
+}
+
+#all-clear:hover {
+    background-color: rgb(2, 2, 211);
+    color: white;
 }
 /* End button styling */
-
