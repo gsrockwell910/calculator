@@ -24,11 +24,28 @@ class Calculator {
      }
 
      displayNumber(number) { 
-
+        if (number === "." && this.currentOperand.includes(".")) return;
+        this.currentOperand = this.currentOperand.toString() + number.toString();
      } 
 
      computeExpression() {
-
+        let results;
+        const prev = parseFloat(this.previousOperand);
+        const curr = parseFloat(this.currentOperand);
+        if (isNaN(prev) || isNaN(curr)) { 
+            return;
+        } else if (this.operation === "+") {
+            results = prev + curr;
+        } else if (this.operation === "-") {
+            results = prev - curr;
+        } else if (this.operation === "*") {
+            results = prev * curr;
+        } else if (this.operation === "÷") {
+            results = prev / curr;
+        };
+        this.currentOperand = results;
+        this.operation = null;
+        this.previousOperand = "";
      }
 
       pickOperation(operation) {
