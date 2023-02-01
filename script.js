@@ -38,7 +38,22 @@ class Calculator {
       }
 
       update() {
-        
-      }
 
+      }
 };
+
+const calculator = new Calculator(currentOperandText, previousOperandText);
+
+numberButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        calculator.displayNumber(button.textContent);
+        calculator.update();
+    })
+})
+
+operationButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        calculator.pickOperation(button.textContent);
+        calculator.update();
+    })
+})
